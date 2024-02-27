@@ -1,0 +1,27 @@
+{
+  "name": "capstone-2",
+  "version": "1.0.0",
+  "description": "You can read API documentation and try here: https://www.theaudiodb.com/?ref=apilist.fun",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js --port 3001"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wunna145/capstone-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wunna145/capstone-2/issues"
+  },
+  "homepage": "https://github.com/wunna145/capstone-2#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

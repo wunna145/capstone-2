@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+      "song_id": { "type": "integer" },
+      "name": { "type": "string" },
+      "title": { "type": "string" },
+      "album_id": { "type": "integer" },
+      "artist_id": { "type": "integer" },
+      "album_name": { "type": "string" },
+      "artist_name": { "type": "string" },
+      "description": { "type": "string" },
+      "genre": { "type": "string" },
+      "mood": { "type": "string" },
+      "style": { "type": "string" },
+      "theme": { "type": "string" },
+      "thumb": { "type": "string" },
+      "video": { "type": "string" },
+      "director": { "type": "string" },
+      "mvcompany": { "type": "string" },
+      "ss1": { "type": "string" },
+      "ss2": { "type": "string" },
+      "ss3": { "type": "string" }
+    },
+    "required": []
+  }
+  

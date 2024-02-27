@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+      "artist_id": { "type": "integer" },
+      "name": { "type": "string" },
+      "label": { "type": "string" },
+      "formed_year": { "type": "string" },
+      "born_year": { "type": "string" },
+      "died_year": { "type": "string" },
+      "disbanded_year": { "type": "string" },
+      "style": { "type": "string" },
+      "genre": { "type": "string" },
+      "mood": { "type": "string" },
+      "website": { "type": "string" },
+      "facebook": { "type": "string" },
+      "bio": { "type": "string" },
+      "gender": { "type": "string" },
+      "country": { "type": "string" },
+      "thumb": { "type": "string" },
+      "logo": { "type": "string" },
+      "art1": { "type": "string" },
+      "art2": { "type": "string" },
+      "art3": { "type": "string" },
+      "art4": { "type": "string" }
+    },
+    "required": []
+  }

@@ -1,0 +1,1 @@
+You can read API documentation and try here: https://www.theaudiodb.com/?ref=apilist.fun

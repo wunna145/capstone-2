@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+      "album_id": { "type": "integer" },
+      "artist_id": { "type": "integer" },
+      "name": { "type": "string" },
+      "artist_name": { "type": "string" },
+      "year_released": { "type": "string" },
+      "style": { "type": "string" },
+      "genre": { "type": "string" },
+      "thumb": { "type": "string" },
+      "description": { "type": "string" }
+    },
+    "required": []
+  }
+  
