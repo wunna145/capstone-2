@@ -3,12 +3,14 @@
 require("dotenv").config();
 require("colors");
 
-const SECRET_KEY = process.env.SECRET_KEY || "your-secret-key-dev";
+const testEnvironment = process.env.NODE_ENV === "test";
+
+const SECRET_KEY = testEnvironment ? "secret-key-test" : process.env.SECRET_KEY || "secret-key-dev";
 const PORT = +process.env.PORT || 3001;
 const api_key = '523532';
 
 function getDatabaseUri() {
-  return process.env.DATABASE_URL || "postgres://localhost/musicsph";
+  return testEnvironment ? "postgres://localhost/musicsph-test" : process.env.DATABASE_URL || "postgres://localhost/musicsph";
 }
 
 function getApiUrl(tableName, artistName, songName='', albumName=''){

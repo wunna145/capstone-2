@@ -5,6 +5,14 @@ const { NotFoundError } = require("../expressError");
 
 console.log('Database Connection Details:', config.getDatabaseUri());
 
+/**
+ * Fetches data from the specified API endpoint using Axios.
+ *
+ * @param {string} apiEndpoint - The API endpoint URL.
+ * @returns {Promise<Object>} - A promise resolving to the response data.
+ * @throws {Error} - If an error occurs during the API request.
+ */
+
 async function fetchDataFromAPI(apiEndpoint) {
   try {
     const response = await axios.get(apiEndpoint);
@@ -14,6 +22,15 @@ async function fetchDataFromAPI(apiEndpoint) {
     throw error;
   }
 }
+
+/**
+ * Inserts data into the specified database table.
+ *
+ * @param {Object[]} data - An array of data objects to insert.
+ * @param {string} tableName - The name of the database table.
+ * @param {Object} dbClient - The PostgreSQL client instance.
+ * @throws {Error} - If an error occurs during the database operation.
+ */
 
 async function insertDataIntoDatabase(data, tableName, dbClient) {
   let mappedData;
@@ -101,6 +118,16 @@ async function insertDataIntoDatabase(data, tableName, dbClient) {
     await dbClient.end();
   }
 }
+/**
+ * Fetches data from the API and inserts it into the database.
+ *
+ * @param {string} tableName - The name of the database table.
+ * @param {string} artistName - The name of the artist (for API query).
+ * @param {string} [songName=''] - The name of the song (for API query).
+ * @param {string} [albumName=''] - The name of the album (for API query).
+ * @throws {NotFoundError} - If no data is found in the API response.
+ * @throws {Error} - If an error occurs during the process.
+ */
 
 async function fetchAndInsert(tableName, artistName, songName = '', albumName = '') {
   const dbClient = new Client(config.getDatabaseUri());  
