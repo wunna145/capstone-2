@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import MusicApi from "../api/api";
 import LoadingSpinner from "../common/LoadingSpinner";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ function Playlist() {
   useEffect(function getPlaylistOnMount() {
     console.debug("Playlist useEffect getPlaylistOnMount");
     search();
-  }, []);
+  });
 
   async function search() {
     if (!storedUser) return navigate('/login');

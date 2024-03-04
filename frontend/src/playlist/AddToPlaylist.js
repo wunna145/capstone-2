@@ -21,7 +21,7 @@ function AddToPlaylist({ songId }) {
     if (currentUser) {
       checkPlaylist();
     }
-  }, []);
+  });
 
   const handleAddToPlaylist = async () => {
     if (!currentUser) {

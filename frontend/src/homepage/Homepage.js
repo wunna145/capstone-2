@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import "./Homepage.css";
 import { Link } from "react-router-dom";
 

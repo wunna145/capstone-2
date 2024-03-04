@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import Playlist from "../playlist/Playlist";

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "../common/Alert";
 import MusicApi from "../api/api";
@@ -20,7 +20,7 @@ function ProfileForm() {
     };
 
     fetchData();
-  }, []);
+  });
   
   const [formData, setFormData] = useState({
     password: "",
