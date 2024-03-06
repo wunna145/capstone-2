@@ -5,13 +5,13 @@ import Navigation from "./routes-nav/Navigation";
 import Routes from "./routes-nav/Routes";
 import LoadingSpinner from "./common/LoadingSpinner";
 import MusicsphApi from "./api/api";
-import jwt from 'jsonwebtoken-promisified';
 import UserProvider from "./auth/UserProvider";
 import UserContext from "./auth/UserContext";
 
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_STORAGE_ID = "musicsph-token";
 
+const jwt = require('jsonwebtoken');
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
