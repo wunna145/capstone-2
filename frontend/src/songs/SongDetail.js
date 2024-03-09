@@ -4,10 +4,23 @@ import LoadingSpinner from "../common/LoadingSpinner";
 import "./SongDetail.css";
 import AddToPlaylist from "../playlist/AddToPlaylist";
 
+/**
+ * Component for displaying detailed information about a song.
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.artistName - The name of the artist of the song.
+ * @param {string} props.name - The name of the song.
+ * @returns {JSX.Element} - The SongDetail component displaying information about the song.
+ */
 function SongDetail({ artistName, name }) {
   const [song, setSong] = useState(null);
 
   useEffect(() => {
+    /**
+     * Fetches information about the song from the Music API.
+     * @async
+     * @function
+     */
     async function getSong() {
       setSong(await MusicApi.getSong(artistName, name));
     }
@@ -15,12 +28,16 @@ function SongDetail({ artistName, name }) {
     getSong();
   }, [artistName, name]);
 
+  // If song information is not available, display a loading spinner
   if (!song) return <LoadingSpinner />;
+
+  // Extracting YouTube video ID from the video URL
   let videoId;
-  if(song.video != null){
+  if (song.video != null) {
     videoId = song.video.split("v=")[1];
   }
 
+  // Rendering the SongDetail component
   return (
     <div className="SongDetail col-md-8 offset-md-2">
       <div className="song-info-container">
@@ -43,15 +60,16 @@ function SongDetail({ artistName, name }) {
         </div>
       </div>
       <div className="more-info">
-      <iframe
-        style={{margin: '50px'}}
-        width="560"
-        height="315"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+        {/* Embedding the YouTube video using the extracted video ID */}
+        <iframe
+          style={{ margin: '50px' }}
+          width="560"
+          height="315"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </div>
       <div className="song-images">
         <h4>Screenshots from MV</h4>
@@ -67,4 +85,5 @@ function SongDetail({ artistName, name }) {
   );
 }
 
+// Export the SongDetail component for use in other parts of the application
 export default SongDetail;

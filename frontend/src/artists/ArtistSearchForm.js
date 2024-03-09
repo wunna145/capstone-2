@@ -1,18 +1,32 @@
+/**
+ * Component for searching and displaying artist details.
+ * @module ArtistSearchForm
+ */
+
 import React, { useState } from "react";
 import Alert from "../common/Alert";
 import MusicApi from "../api/api";
 import ArtistDetail from "./ArtistDetail";
 
+/**
+ * Functional component representing the ArtistSearchForm module.
+ * @function
+ * @returns {JSX.Element} JSX representing the ArtistSearchForm component.
+ */
 function ArtistSearchForm() {
+  // State to hold form data and errors
   const [formData, setFormData] = useState({
     name: ""
   });
   const [formErrors, setFormErrors] = useState([]);
   const [artist, setArtist] = useState(null);
 
+  /**
+   * Handles form submission.
+   * @param {Object} evt - The form submission event.
+   */
   async function handleSubmit(evt) {
     evt.preventDefault();
-    console.log(formData.name);
     let result = await MusicApi.getArtist(formData.name);
     if (result) {
       setFormErrors([]);
@@ -22,12 +36,16 @@ function ArtistSearchForm() {
     }
   }
 
-  /** Update form data field */
+  /**
+   * Updates the form data field on input change.
+   * @param {Object} evt - The input change event.
+   */
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData(l => ({ ...l, [name]: value }));
   }
 
+  // Render the ArtistSearchForm component
   return (
     <div className="ArtistSearchForm">
       {!artist &&
@@ -70,4 +88,5 @@ function ArtistSearchForm() {
   );
 }
 
+// Export the ArtistSearchForm component for use in other parts of the application
 export default ArtistSearchForm;

@@ -1,11 +1,25 @@
+/**
+ * Component for displaying detailed information about an artist.
+ * @module ArtistDetail
+ */
+
 import React, { useState, useEffect } from "react";
 import MusicApi from "../api/api";
 import LoadingSpinner from "../common/LoadingSpinner";
 import "./ArtistDetail.css";
 
+/**
+ * Functional component representing the ArtistDetail module.
+ * @function
+ * @param {Object} props - The component's input properties.
+ * @param {string} props.name - The name of the artist to display details for.
+ * @returns {JSX.Element} JSX representing the ArtistDetail component.
+ */
 function ArtistDetail({ name }) {
+  // State to hold artist details
   const [artist, setArtist] = useState(null);
 
+  // Fetch artist details when the component mounts
   useEffect(() => {
     async function getArtist() {
       setArtist(await MusicApi.getArtist(name));
@@ -14,8 +28,10 @@ function ArtistDetail({ name }) {
     getArtist();
   }, [name]);
 
+  // Display loading spinner while fetching data
   if (!artist) return <LoadingSpinner />;
 
+  // Render artist details
   return (
     <div className="ArtistDetail col-md-8 offset-md-2">
       <div className="artist-info-container">
@@ -64,4 +80,5 @@ function ArtistDetail({ name }) {
   );
 }
 
+// Export the ArtistDetail component for use in other parts of the application
 export default ArtistDetail;
