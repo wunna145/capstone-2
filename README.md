@@ -1,4 +1,4 @@
-1. My site is named MusicSphere.
+1. My site is named MusicSphere. We can visit my site on: https://capstone-2-frontend-aa76.onrender.com/.
 
 2. This music app aims to offer users a comprehensive and enjoyable experience by delving into artists and their album histories. It strives to assist users in discovering new music, gaining insights into their favorite artists, exploring diverse genres, and curating personal collections of songs. Positioned as a go-to platform, the app caters to music enthusiasts, artists, and anyone intrigued by the rich history of albums and musicians.
 
