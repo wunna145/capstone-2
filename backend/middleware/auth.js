@@ -42,32 +42,7 @@ function authenticateJWT(req, res, next) {
   }
 }
 
-/**
- * Middleware to use when users must be logged in.
- *
- * If not, raises UnauthorizedError.
- *
- * @param {Object} req - Express request object.
- * @param {Object} res - Express response object.
- * @param {Function} next - Express next middleware function.
- * @returns {Function} Express middleware function.
- * @throws {UnauthorizedError} If user is not authenticated.
- */
-function ensureLoggedIn(req, res, next) {
-  try {
-    // If user is not present in res.locals, raise UnauthorizedError
-    if (!res.locals.user) throw new UnauthorizedError();
-
-    // Continue to the next middleware or route handler
-    return next();
-  } catch (err) {
-    // Pass the error to the next middleware or error handler
-    return next(err);
-  }
-}
-
 // Export the middleware functions
 module.exports = {
-  authenticateJWT,
-  ensureLoggedIn
+  authenticateJWT
 };

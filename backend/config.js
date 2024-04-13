@@ -28,7 +28,7 @@ const api_key = key;
  * @returns {string} - The database URI.
  */
 function getDatabaseUri() {
-  return testEnvironment ? "postgres://localhost/musicsph-test" : process.env.DATABASE_URL || "postgres://localhost/musicsph";
+  return testEnvironment ? "postgres://localhost/musicsph_test" : process.env.DATABASE_URL || "postgres://localhost/musicsph";
 }
 
 /**

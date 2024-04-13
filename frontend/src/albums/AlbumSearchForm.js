@@ -49,8 +49,9 @@ function AlbumSearchForm() {
               {/* Album search form */}
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label style={{ marginBottom: "10px" }}>Artist Name</label>
+                  <label htmlFor="artistName" style={{ marginBottom: "10px" }}>Artist Name</label>
                   <input
+                    id="artistName"
                     name="artistName"
                     className="form-control"
                     value={formData.artistName}
@@ -61,8 +62,9 @@ function AlbumSearchForm() {
                   />
                 </div>
 
-                <label style={{ marginBottom: "10px" }}>Album Name</label>
+                <label htmlFor="name" style={{ marginBottom: "10px" }}>Album Name</label>
                 <input
+                  id="name"
                   name="name"
                   className="form-control"
                   value={formData.name}

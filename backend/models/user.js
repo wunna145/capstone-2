@@ -237,28 +237,34 @@ class User {
    * @param {number} songId - The unique identifier of the song.
    * @throws {NotFoundError} If the song or username does not exist.
    */
-  static async createPlaylist(username, songId) {
-    const preCheck = await db.query(
-      `SELECT song_id
-       FROM songs
-       WHERE song_id = $1`, [songId]);
-    const song = preCheck.rows[0];
+static async createPlaylist(username, songId) {
+  const songCheck = await db.query(
+    `SELECT song_id
+     FROM songs
+     WHERE song_id = $1`, [songId]);
+  const userCheck = await db.query(
+    `SELECT username
+     FROM users
+     WHERE username = $1`, [username]);
 
-    if (!song) throw new NotFoundError(`No song: ${songId}`);
+  const songExists = songCheck.rows.length > 0;
+  const userExists = userCheck.rows.length > 0;
 
-    const preCheck2 = await db.query(
-      `SELECT username
-       FROM users
-       WHERE username = $1`, [username]);
-    const user = preCheck2.rows[0];
-
-    if (!user) throw new NotFoundError(`No username: ${username}`);
-
-    await db.query(
-      `INSERT INTO playlists (song_id, username)
-       VALUES ($1, $2)`,
-      [songId, username]);
+  if (!songExists) {
+    throw new NotFoundError(`No song found with ID: ${songId}`);
   }
+
+  if (!userExists) {
+    throw new NotFoundError(`No user found with username: ${username}`);
+  }
+
+  await db.query(
+    `INSERT INTO playlists (song_id, username)
+     VALUES ($1, $2)`,
+    [songId, username]
+  );
+}
+
 
   /**
    * Retrieve the playlist of a user based on the provided username.
@@ -279,7 +285,9 @@ class User {
     );
     const playlist = result.rows;
 
-    if (!playlist) throw new NotFoundError(`No playlist: ${username}`);
+    if (playlist.length === 0){
+      throw new NotFoundError(`No playlist found for user: ${username}`);
+    }
     return playlist;
   }
 

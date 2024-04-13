@@ -1,8 +1,3 @@
-/**
- * PostgreSQL database client configuration and connection module.
- * @module db
- */
-
 const { Client } = require("pg");
 const { getDatabaseUri } = require("./config");
 
@@ -16,5 +11,16 @@ const db = new Client({
 // Establish a connection to the PostgreSQL database
 db.connect();
 
-// Export the connected database client for use in other parts of the application
+// Export the connected database client
 module.exports = db;
+
+if (typeof describe === 'function') {
+  afterAll(async () => {
+    try {
+      // Close the database connection
+      await db.end();
+    } catch (err) {
+      console.error("Error closing database connection:", err.message);
+    }
+  });
+}

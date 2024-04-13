@@ -40,7 +40,19 @@ app.use("/albums", albumsRoutes);
 app.use("/songs", songsRoutes);
 app.use("/users", usersRoutes);
 
-/** Handle 404 errors -- this matches everything */
+// Error handling middleware
+app.use(function (err, req, res, next) {
+  // Check if the error is a database error
+  if (err instanceof Error && err.message === 'Database error') {
+    // Send a 500 status code with the error message
+    return res.status(500).json({ error: err.message });
+  }
+  
+  // For other errors, delegate to the default error handler
+  return next(err);
+});
+
+// Handle 404 errors -- this matches everything
 app.use(function (req, res, next) {
   return next(new NotFoundError());
 });

@@ -62,8 +62,9 @@ function SongSearchForm() {
             <div className="card-body" style={{ backgroundColor: '#ADD8E6' }}>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label style={{ marginBottom: "10px" }}>Artist Name</label>
+                  <label htmlFor="artistName" style={{ marginBottom: "10px" }}>Artist Name</label>
                   <input
+                    id="artistName"
                     name="artistName"
                     className="form-control"
                     value={formData.artistName}
@@ -72,8 +73,9 @@ function SongSearchForm() {
                     autoComplete="artistName"
                     required
                   />
-                  <label style={{ marginBottom: "10px" }}>Track Name</label>
+                  <label htmlFor="trackName" style={{ marginBottom: "10px" }}>Track Name</label>
                   <input
+                    id="trackName"
                     name="name"
                     className="form-control"
                     value={formData.name}

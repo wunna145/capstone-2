@@ -11,9 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // Render the application within a UserProvider for managing user context
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <App />
   </React.StrictMode>
 );
 

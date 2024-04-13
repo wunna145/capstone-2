@@ -9,7 +9,7 @@ import "./LoadingSpinner.css";
 function LoadingSpinner() {
   // Render the loading spinner
   return (
-    <div className="LoadingSpinner">
+    <div className="LoadingSpinner" data-testid="loading-spinner">
       Loading ...
     </div>
   );

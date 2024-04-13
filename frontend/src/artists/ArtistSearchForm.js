@@ -56,8 +56,9 @@ function ArtistSearchForm() {
             <div className="card-body" style={{ backgroundColor: '#ADD8E6' }}>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label style={{ marginBottom: "10px" }}>Artist Name</label>
+                  <label htmlFor="artistName" style={{ marginBottom: "10px" }}>Artist Name</label>
                   <input
+                    id="artistName"
                     name="name"
                     className="form-control"
                     value={formData.name}

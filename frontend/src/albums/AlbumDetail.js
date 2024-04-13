@@ -15,18 +15,26 @@ import "./AlbumDetail.css";
 function AlbumDetail({ artistName, name }) {
   // State to store the album details
   const [album, setAlbum] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Fetch album details from the API when component mounts or when artistName or name changes
   useEffect(() => {
     async function getAlbum() {
-      setAlbum(await MusicApi.getAlbum(artistName, name));
+      try {
+        const albumData = await MusicApi.getAlbum(artistName, name);
+        setAlbum(albumData);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     getAlbum();
   }, [artistName, name]);
 
   // Render a loading spinner while waiting for album details to be fetched
-  if (!album) return <LoadingSpinner />;
+  if (isLoading) return <LoadingSpinner />;
 
   // Render the album details once they are available
   return (
