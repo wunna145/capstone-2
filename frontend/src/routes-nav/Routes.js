@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams, Navigate } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import Playlist from "../playlist/Playlist";
 import ArtistSearchForm from "../artists/ArtistSearchForm";
@@ -48,6 +48,7 @@ function UserRoutes({ login, signup }) {
         <Route path="/searchSongs" element={<SongSearchForm />} />
         <Route path="/searchAlbums" element={<AlbumSearchForm />} />
         <Route path="/songDetail/:artistName/:songName" element={<SongDetailRoute />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
