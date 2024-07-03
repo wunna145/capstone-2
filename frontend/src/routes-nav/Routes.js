@@ -48,7 +48,7 @@ function UserRoutes({ login, signup }) {
         <Route path="/searchSongs" element={<SongSearchForm />} />
         <Route path="/searchAlbums" element={<AlbumSearchForm />} />
         <Route path="/songDetail/:artistName/:songName" element={<SongDetailRoute />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
