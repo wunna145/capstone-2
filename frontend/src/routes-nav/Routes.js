@@ -37,20 +37,18 @@ function UserRoutes({ login, signup }) {
   }
 
   return (
-    <div className="pt-5">
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/playlist" element={<Playlist />} />
-        <Route path="/profile" element={<ProfileForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/searchArtists" element={<ArtistSearchForm />} />
-        <Route path="/searchSongs" element={<SongSearchForm />} />
-        <Route path="/searchAlbums" element={<AlbumSearchForm />} />
-        <Route path="/songDetail/:artistName/:songName" element={<SongDetailRoute />} />
-        <Route path="/*" element={<Navigate to='/' />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/playlist" element={<Playlist />} />
+      <Route path="/profile" element={<ProfileForm />} />
+      <Route path="/login" element={<LoginForm />} />
+      <Route path="/signup" element={<SignupForm />} />
+      <Route path="/searchArtists" element={<ArtistSearchForm />} />
+      <Route path="/searchSongs" element={<SongSearchForm />} />
+      <Route path="/searchAlbums" element={<AlbumSearchForm />} />
+      <Route path="/songDetail/:artistName/:songName" element={<SongDetailRoute />} />
+      <Route path="/*" element={<Navigate to='/' />} />
+    </Routes>
   );
 }
 
