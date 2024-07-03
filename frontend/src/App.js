@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import useLocalStorage from "./hooks/useLocalStorage";
 import Navigation from "./routes-nav/Navigation";
 import UserRoutes from "./routes-nav/Routes";
-import Homepage from "./homepage/Homepage";
 import MusicsphApi from "./api/api";
 import UserProvider from "./auth/UserProvider";
 import UserContext from "./auth/UserContext";
@@ -147,9 +146,6 @@ function App() {
       >
         <div className="App">
           <Navigation logout={logout} />
-          <Routes>
-            <Route path="/*" element={<Navigate to="/" />} />
-          </Routes>
           <UserRoutes login={login} signup={signup} />
         </div>
       </UserProvider>
