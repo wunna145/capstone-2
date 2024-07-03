@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
 import useLocalStorage from "./hooks/useLocalStorage";
 import Navigation from "./routes-nav/Navigation";
-import Routes from "./routes-nav/Routes";
-import LoadingSpinner from "./common/LoadingSpinner";
+import UserRoutes from "./routes-nav/Routes";
 import MusicsphApi from "./api/api";
 import UserProvider from "./auth/UserProvider";
 import UserContext from "./auth/UserContext";
@@ -146,9 +145,8 @@ function App() {
         value={{ currentUser, setCurrentUser, hasAddedToPlaylist, createPlaylist }}
       >
         <div className="App">
-          {/* Render the navigation bar and application routes */}
           <Navigation logout={logout} />
-          <Routes login={login} signup={signup} />
+          <UserRoutes login={login} signup={signup} />
         </div>
       </UserProvider>
     </BrowserRouter>
