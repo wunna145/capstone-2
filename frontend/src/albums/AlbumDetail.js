@@ -24,7 +24,7 @@ function AlbumDetail({ artistName, name }) {
         const albumData = await MusicApi.getAlbum(artistName, name);
         setAlbum(albumData);
       } catch (error) {
-        setError(error);
+        console.log(error);
       } finally {
         setIsLoading(false);
       }

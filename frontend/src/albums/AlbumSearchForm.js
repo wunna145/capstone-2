@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import Alert from "../common/Alert";
 import MusicApi from "../api/api";
 import AlbumDetail from "./AlbumDetail";
+import ClipLoader from "react-spinners/CircleLoader";
 
 function AlbumSearchForm() {
   // State to store form data, form errors, and album details
@@ -17,11 +18,14 @@ function AlbumSearchForm() {
   });
   const [formErrors, setFormErrors] = useState([]);
   const [album, setAlbum] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // Function to handle form submission
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setLoading(true);
     let result = await MusicApi.getAlbum(formData.artistName, formData.name);
+    setLoading(false);
 
     // Update state based on API result
     if (result) {
@@ -84,7 +88,8 @@ function AlbumSearchForm() {
                   className="btn btn-primary float-right"
                   type="submit"
                 >
-                  Search
+                  {loading ? <ClipLoader size={20} color={"#fff"} /> : "Search"}
+
                 </button>
               </form>
             </div>

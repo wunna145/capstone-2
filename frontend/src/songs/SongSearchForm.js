@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Alert from "../common/Alert";
 import MusicApi from "../api/api";
 import SongDetail from "./SongDetail";
+import ClipLoader from "react-spinners/CircleLoader";
 
 /**
  * Component for searching and displaying detailed information about a song.
@@ -16,6 +17,7 @@ function SongSearchForm() {
   });
   const [formErrors, setFormErrors] = useState([]);
   const [song, setSong] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   /**
    * Handles form submission by making an API call to fetch song details.
@@ -27,8 +29,9 @@ function SongSearchForm() {
     evt.preventDefault();
     try {
       // Fetch song details based on artist name and track name
+      setLoading(true);
       let result = await MusicApi.getSong(formData.artistName, formData.name);
-
+      setLoading(false);
       if (result) {
         setFormErrors([]);
         setSong(result);
@@ -94,7 +97,7 @@ function SongSearchForm() {
                   className="btn btn-primary float-right"
                   type="submit"
                 >
-                  Search
+                  {loading ? <ClipLoader size={20} color={"#fff"} /> : "Search"}
                 </button>
               </form>
             </div>

@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import Alert from "../common/Alert";
 import MusicApi from "../api/api";
 import ArtistDetail from "./ArtistDetail";
+import ClipLoader from "react-spinners/CircleLoader";
 
 /**
  * Functional component representing the ArtistSearchForm module.
@@ -20,6 +21,7 @@ function ArtistSearchForm() {
   });
   const [formErrors, setFormErrors] = useState([]);
   const [artist, setArtist] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   /**
    * Handles form submission.
@@ -27,7 +29,9 @@ function ArtistSearchForm() {
    */
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setLoading(true);
     let result = await MusicApi.getArtist(formData.name);
+    setLoading(false);
     if (result) {
       setFormErrors([]);
       setArtist(result);
@@ -75,9 +79,9 @@ function ArtistSearchForm() {
 
                 <button
                   className="btn btn-primary float-right"
-                  type="submit"
+                  type="submit" disabled={loading}
                 >
-                  Search
+                  {loading ? <ClipLoader size={20} color={"#fff"} /> : "Search"}
                 </button>
               </form>
             </div>
