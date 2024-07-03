@@ -6,6 +6,7 @@
  */
 
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const { NotFoundError } = require("./expressError");
 
@@ -40,21 +41,17 @@ app.use("/albums", albumsRoutes);
 app.use("/songs", songsRoutes);
 app.use("/users", usersRoutes);
 
-// Error handling middleware
-app.use(function (err, req, res, next) {
-  // Check if the error is a database error
-  if (err instanceof Error && err.message === 'Database error') {
-    // Send a 500 status code with the error message
-    return res.status(500).json({ error: err.message });
-  }
-  
-  // For other errors, delegate to the default error handler
-  return next(err);
-});
+// Serve static files from the React app build directory
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Handle 404 errors -- this matches everything
 app.use(function (req, res, next) {
   return next(new NotFoundError());
+});
+
+// Serve the React app for any other route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 /** Generic error handler; anything unhandled goes here. */

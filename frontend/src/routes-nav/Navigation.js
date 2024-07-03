@@ -56,7 +56,7 @@ function Navigation() {
   return (
     <nav
       className="Navigation navbar navbar-expand-md"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}
+      style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', marginBottom: '50px'}}
     >
       <Link className="navbar-brand" to="/" style={{ marginLeft: '20px' }}>
         MusicSphere
