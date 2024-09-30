@@ -6,7 +6,7 @@
  */
 
 const db = require("../db");
-const fetchAndInsert = require("../helpers/fetchAndInsertData");
+const fetchAndInsertData = require("../helpers/fetchAndInsertData");
 
 /**
  * Represents a Song class with static methods for database operations.
@@ -81,7 +81,7 @@ class Song {
 
     // If the artist does not exist, fetch and insert the artist data
     if (!artist) {
-      await fetchAndInsert('artists', artistName);
+      await fetchAndInsertData.fetchAndInsert('artists', artistName);
     }
 
     // Query the 'albums' table to check if the album exists for the given artist
@@ -96,7 +96,7 @@ class Song {
 
     // If the album does not exist, fetch and insert the album data
     if (!album) {
-      await fetchAndInsert('albums', artistName);
+      await fetchAndInsertData.fetchAndInsert('albums', artistName);
     }
 
     // Query the 'songs' table to check if the song exists for the given artist and album
@@ -111,7 +111,7 @@ class Song {
 
     // If the song does not exist, fetch and insert the song data
     if (!song) {
-      await fetchAndInsert('songs', artistName, songName, "");
+      await fetchAndInsertData.fetchAndInsert('songs', artistName, songName, "");
       
       // Query the updated 'songs' table to get the inserted song
       const updatedSongRes = await db.query(

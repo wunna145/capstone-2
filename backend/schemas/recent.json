@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+      "recent_id": { "type": "integer" },
+      "item_id": { "type": "integer" },
+      "category": { "type": "string" },
+      "created_at": { "type": "string", "format": "date-time" }
+    },
+    "required": ["recent_id", "item_id", "category", "created_at"]
+  }
+  

@@ -1,8 +1,39 @@
+.artist-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .artist-info-container {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
+
+.artist-details {
+    margin-right: 40px;
+}
+  
+.artist-details h3 {
+    margin-bottom: 15px;
+}
+
+.artist-details p {
+    opacity: 0.75;
+}
+
+.artist-details a {
+    text-decoration: none;
+    color: #6da5c0;
+    transition: all 0.5s ease;
+}
+
+.artist-details a:hover {
+    color: white;
+}
+
   
 .artist-thumbnail {
     width: 220px;
@@ -10,7 +41,7 @@
     border-radius: 20%;
     overflow: hidden;
     margin-right: 50px;
-    box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 10px 10px rgba(0, 0, 0, 1);
 }
   
 .artist-thumbnail img {
@@ -22,26 +53,29 @@
 .artist-bio {
     margin-top: 20px;
     margin-bottom: 50px;
-    background-color: rgba(119, 130, 182, 0.2);
     padding: 20px;
-    border-radius: 5%;
 }
 
-.artist-details {
-    margin-right: 40px;
-}
-  
-.artist-details h3 {
-    margin-bottom: 15px;
+.artist-bio p {
+    opacity: 0.75;
 }
 
+.artist-images {
+    display: flex;
+    align-items: center;
+}
 
 .artist-images img {
-    margin-right: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     width: 300px;
     height: 200px;
     border-radius: 20px;
-    box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 10px 10px rgba(0, 0, 0, 1);
+}
+
+.artist-logo {
+    margin: 30px;
 }

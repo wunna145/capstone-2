@@ -1,5 +1,6 @@
 import React from "react";
-import "./LoadingSpinner.css";
+import ClipLoader from "react-spinners/CircleLoader";
+import './LoadingSpinner.css';
 
 /**
  * React component for a loading spinner, used by components that fetch API data.
@@ -7,10 +8,10 @@ import "./LoadingSpinner.css";
  * @returns {JSX.Element} JSX element representing the LoadingSpinner component.
  */
 function LoadingSpinner() {
-  // Render the loading spinner
   return (
-    <div className="LoadingSpinner" data-testid="loading-spinner">
-      Loading ...
+    <div className="loadingSpinner">
+      <ClipLoader size={100} color={"#fff"} />
+      <p>L o a d i n g . . .</p>
     </div>
   );
 }

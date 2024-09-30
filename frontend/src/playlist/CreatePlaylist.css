@@ -18,12 +18,28 @@
     object-fit: cover;
 }
 
+.playlist-details-container {
+    background-color: #062125;
+    margin-bottom: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(109, 165, 192, 0.5);
+}
+
+.playlist-details-container:hover {
+    transform: translateX(-3.5px) translateY(-3.5px);
+    box-shadow: 5px 5px 10px rgba(109, 165, 192, 0.3);
+}
+
+.card-info {
+    margin: 5px;
+    opacity: 0.75;
+}
+
 .playlist-detail {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.playlist-details-container:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
-}

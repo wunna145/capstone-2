@@ -9,6 +9,7 @@ import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
 import SongDetail from "../songs/SongDetail";
 import ProfileForm from "../profiles/ProfileForm";
+import ArtistDetail from "../artists/ArtistDetail";
 
 /**
  * Component that defines the routes for user navigation.
@@ -44,6 +45,7 @@ function UserRoutes({ login, signup }) {
       <Route path="/login" element={<LoginForm />} />
       <Route path="/signup" element={<SignupForm />} />
       <Route path="/searchArtists" element={<ArtistSearchForm />} />
+      <Route path="/artistDetails/:name" element={<ArtistDetail/>} />
       <Route path="/searchSongs" element={<SongSearchForm />} />
       <Route path="/searchAlbums" element={<AlbumSearchForm />} />
       <Route path="/songDetail/:artistName/:songName" element={<SongDetailRoute />} />

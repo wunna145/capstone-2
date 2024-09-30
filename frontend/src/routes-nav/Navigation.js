@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../auth/UserContext";
+import './Navigation.css';
 
 /**
  * Component for rendering the navigation bar.
@@ -17,17 +18,17 @@ function Navigation() {
     return (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item mr-4">
-          <NavLink className="nav-link" to="/playlist">
+          <NavLink className="link" to="/playlist">
             Playlist
           </NavLink>
         </li>
         <li className="nav-item mr-4">
-          <NavLink className="nav-link" to="/profile">
+          <NavLink className="link" to="/profile">
             Profile
           </NavLink>
         </li>
         <li>
-          <Link className="nav-link" to="/" onClick={logout}>
+          <Link className="link" to="/" onClick={logout}>
             Logout({currentUser.name})
           </Link>
         </li>
@@ -40,12 +41,12 @@ function Navigation() {
     return (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item mr-4">
-          <NavLink className="nav-link" to="/login">
+          <NavLink className="link" to="/login">
             Login
           </NavLink>
         </li>
         <li className="nav-item mr-4">
-          <NavLink className="nav-link" to="/signup">
+          <NavLink className="link" to="/signup">
             Sign Up
           </NavLink>
         </li>
@@ -56,24 +57,24 @@ function Navigation() {
   return (
     <nav
       className="Navigation navbar navbar-expand-md"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', marginBottom: '50px'}}
+      style={{ backgroundColor: '#062125', marginBottom: '50px'}}
     >
-      <Link className="navbar-brand" to="/" style={{ marginLeft: '20px' }}>
+      <Link className="navbar-brand" to="/" style={{ color: 'white', marginLeft: '30px' }}>
         MusicSphere
       </Link>
-      <ul className="navbar-nav ml-auto">
+      <ul className="navbar-nav ml-4">
         <li className="nav-item mr-4">
-          <NavLink className="nav-link" to="/searchArtists">
+          <NavLink className="link" to="/searchArtists">
             Artists
           </NavLink>
         </li>
         <li className="nav-item mr-4">
-          <NavLink className="nav-link" to="/searchAlbums">
+          <NavLink className="link" to="/searchAlbums">
             Albums
           </NavLink>
         </li>
         <li className="nav-item mr-4">
-          <NavLink className="nav-link" to="/searchSongs">
+          <NavLink className="link" to="/searchSongs">
             Songs
           </NavLink>
         </li>

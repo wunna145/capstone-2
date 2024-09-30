@@ -148,4 +148,7 @@ async function fetchAndInsert(tableName, artistName, songName = '', albumName = 
   }
   
   
-module.exports = fetchAndInsert;
+module.exports = { 
+  fetchAndInsert,
+  insertDataIntoDatabase
+};

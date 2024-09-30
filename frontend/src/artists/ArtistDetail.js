@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import MusicApi from "../api/api";
 import LoadingSpinner from "../common/LoadingSpinner";
 import "./ArtistDetail.css";
+import { useParams } from 'react-router-dom';
 
 /**
  * Functional component representing the ArtistDetail module.
@@ -15,7 +16,9 @@ import "./ArtistDetail.css";
  * @param {string} props.name - The name of the artist to display details for.
  * @returns {JSX.Element} JSX representing the ArtistDetail component.
  */
-function ArtistDetail({ name }) {
+function ArtistDetail() {
+  const paramName = useParams();
+  const name = paramName.name;
   // State to hold artist details
   const [artist, setArtist] = useState(null);
 
@@ -33,7 +36,7 @@ function ArtistDetail({ name }) {
 
   // Render artist details
   return (
-    <div className="ArtistDetail col-md-8 offset-md-2">
+    <div className="artist-details-container">
       <div className="artist-info-container">
         <div className="artist-thumbnail">
           <img src={artist.thumb} alt={artist.name} />
@@ -71,6 +74,7 @@ function ArtistDetail({ name }) {
           <img src={artist.art1} alt={artist.art1} />
           <img src={artist.art2} alt={artist.art2} />
           <img src={artist.art3} alt={artist.art3} />
+          <img src={artist.art4} alt={artist.art4} />
       </div>
       <div className="artist-bio">
         <h4>Biography</h4>

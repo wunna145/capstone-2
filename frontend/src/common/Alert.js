@@ -1,11 +1,10 @@
 import React from "react";
+import './Alert.css';
 
 /**
  * React component to display alert messages.
  * @component
  * @param {Object} props - React component properties.
- * @param {string} [props.type="danger"] - Type of the alert (e.g., "danger", "success").
- * @param {Array|string} [props.messages=[]] - Array of error messages or a single error message string.
  * @returns {JSX.Element} JSX element representing the Alert component.
  */
 function Alert({ type = "danger", messages = [] }) {
@@ -17,9 +16,9 @@ function Alert({ type = "danger", messages = [] }) {
 
   // Render the alert component
   return (
-    <div className={`alert alert-${type}`} role="alert">
+    <div className={`alert-card`} role="alert">
       {errorMessages.map((error, index) => (
-        <p className="mb-0 small" key={index}>
+        <p className="error-msg" key={index}>
           {error}
         </p>
       ))}

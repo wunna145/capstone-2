@@ -6,8 +6,9 @@
 import React, { useState } from "react";
 import Alert from "../common/Alert";
 import MusicApi from "../api/api";
-import ArtistDetail from "./ArtistDetail";
 import ClipLoader from "react-spinners/CircleLoader";
+import { Navigate } from "react-router-dom";
+import './ArtistSearchForm.css';
 
 /**
  * Functional component representing the ArtistSearchForm module.
@@ -52,12 +53,13 @@ function ArtistSearchForm() {
   // Render the ArtistSearchForm component
   return (
     <div className="ArtistSearchForm">
+      {artist && <Navigate to={`/artistDetails/${artist.name}`} />}
       {!artist &&
         <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4"
           style={{ marginBottom: '40px' }}>
           <h3 className="mb-3">Search Artist</h3>
-          <div className="card">
-            <div className="card-body" style={{ backgroundColor: '#ADD8E6' }}>
+          <div className="form">
+            <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="artistName" style={{ marginBottom: "10px" }}>Artist Name</label>
@@ -78,7 +80,7 @@ function ArtistSearchForm() {
                 ) : null}
 
                 <button
-                  className="btn btn-primary float-right"
+                  className="searchBtn"
                   type="submit" disabled={loading}
                 >
                   {loading ? <ClipLoader size={20} color={"#fff"} /> : "Search"}
@@ -88,7 +90,6 @@ function ArtistSearchForm() {
           </div>
         </div>
       }
-      {artist && <ArtistDetail name={artist.name} />}
     </div>
   );
 }

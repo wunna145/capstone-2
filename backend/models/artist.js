@@ -6,7 +6,10 @@
  */
 
 const db = require("../db");
-const fetchAndInsert = require("../helpers/fetchAndInsertData");
+const { Client } = require('pg');
+const config = require('../config');
+const fetchAndInsertData = require("../helpers/fetchAndInsertData");
+const insertDataIntoDatabase = require("../helpers/fetchAndInsertData");
 
 /**
  * Represents an Artist class with static methods for database operations.
@@ -57,7 +60,7 @@ class Artist {
 
     // If the artist does not exist, fetch and insert the artist data
     if (!artist) {
-      await fetchAndInsert('artists', name);
+      await fetchAndInsertData.fetchAndInsert('artists', name);
       
       // Query the updated 'artists' table to get the inserted artist
       const updatedArtistRes = await db.query(
@@ -73,6 +76,33 @@ class Artist {
       return artist;
     }
   }
+
+  static async addArtist(name, artistData) {
+    // Query the 'artists' table to check if the artist exists
+    const artistRes = await db.query(
+      `SELECT *
+       FROM artists
+       WHERE name ILIKE $1`,
+      [name]
+    );
+  
+    const artist = artistRes.rows[0];
+  
+    // If the artist does not exist, insert the artist data
+    if (!artist) {
+      const dbClient = new Client(config.getDatabaseUri());  
+      if (artistData) {
+        await insertDataIntoDatabase(artistData, 'artists', dbClient);
+      } else {
+        throw new NotFoundError(`No data`);
+      }
+
+    } else {
+      // Return the existing artist message
+      return { message: "Artist already exists", artist };
+    }
+  }
+
 }
 
 // Export the Artist class

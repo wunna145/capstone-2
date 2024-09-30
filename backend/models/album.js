@@ -6,7 +6,7 @@
  */
 
 const db = require("../db");
-const fetchAndInsert = require("../helpers/fetchAndInsertData");
+const fetchAndInsertData = require("../helpers/fetchAndInsertData");
 
 /**
  * Represents an Album class with static methods for database operations.
@@ -59,7 +59,7 @@ class Album {
 
     // If the artist does not exist, fetch and insert the artist data
     if (!artist) {
-      await fetchAndInsert('artists', artistName);
+      await fetchAndInsertData.fetchAndInsert('artists', artistName);
     }
 
     // Query the 'albums' table to check if the album exists for the given artist
@@ -74,7 +74,7 @@ class Album {
 
     // If the album does not exist, fetch and insert the album data
     if (!album) {
-      await fetchAndInsert('albums', albumName);
+      await fetchAndInsertData.fetchAndInsert('albums', albumName);
       
       // Query the updated 'albums' table to get the inserted album
       const updatedAlbumRes = await db.query(

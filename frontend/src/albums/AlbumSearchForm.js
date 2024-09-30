@@ -49,7 +49,7 @@ function AlbumSearchForm() {
         <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4" style={{ marginBottom: '40px' }}>
           <h3 className="mb-3">Search Album</h3>
           <div className="card">
-            <div className="card-body" style={{ backgroundColor: '#ADD8E6' }}>
+            <div className="card-body" style={{ backgroundColor: '#072e33' }}>
               {/* Album search form */}
               <form onSubmit={handleSubmit}>
                 <div className="form-group">

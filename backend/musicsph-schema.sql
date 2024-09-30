@@ -69,3 +69,10 @@ CREATE TABLE playlists (
     username VARCHAR(25) REFERENCES users(username) ON DELETE CASCADE,
     PRIMARY KEY (song_id, username)
 );
+
+CREATE TABLE recents (
+    recent_id SERIAL PRIMARY KEY,
+    item_id INTEGER,
+    category TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+)

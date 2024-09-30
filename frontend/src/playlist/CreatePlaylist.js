@@ -50,21 +50,13 @@ function CreatePlaylist({ songIds }) {
         <div className="playlist-info-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
           {songs.map((song) => (
             <div key={song.id} className="playlist-details-container"
-              style={{
-                backgroundColor: 'rgba(150, 200, 220)',
-                marginBottom: '50px',
-                padding: '10px',
-                borderRadius: '10px',
-                transition: 'box-shadow 0.3s ease',
-                boxShadow: '7px 10px 10px rgba(0, 0, 0, 0.5)',
-              }}
               onClick={() => handleClick(song)}
             >
               <div className="playlist-thumbnail" style={{ marginBottom: '10px' }}>
                 <img src={song.thumb} alt={song.name} />
               </div>
-              <div style={{ color: '#4a3f3e' }}>Title: {song.name}</div>
-              <div style={{ color: '#4a3f3e' }}> Artist: {song.artist_name} </div>
+              <p className="card-info">Title: {song.name}</p>
+              <p className="card-info"> Artist: {song.artist_name} </p>
             </div>
           ))}
         </div>

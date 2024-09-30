@@ -62,7 +62,7 @@ function SongSearchForm() {
           style={{ marginBottom: '40px' }}>
           <h3 className="mb-3">Search Track</h3>
           <div className="card">
-            <div className="card-body" style={{ backgroundColor: '#ADD8E6' }}>
+            <div className="card-body" style={{ backgroundColor: '#072e33' }}>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="artistName" style={{ marginBottom: "10px" }}>Artist Name</label>

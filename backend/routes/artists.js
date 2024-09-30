@@ -10,6 +10,7 @@ const express = require("express");
 
 const { BadRequestError } = require("../expressError");
 const artistSearchSchema = require("../schemas/artistSearch.json");
+const artistUpdateSchema = require("../schemas/artistUpdate.json");
 const Artist = require("../models/artist");
 
 // Create a new Express Router instance
